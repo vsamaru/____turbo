@@ -1,0 +1,51 @@
+{
+  "name": "lagon",
+  "version": "0.0.1",
+  "description": "Deploy Serverless Functions at the Edge",
+  "private": true,
+  "scripts": {
+    "start:docs": "pnpm --filter @lagon/docs dev",
+    "start:www": "pnpm --filter @lagon/www dev",
+    "test": "turbo test --continue --filter=!@lagon/example-*",
+    "build": "turbo build --continue --filter=!@lagon/example-*",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck --continue",
+    "docker:build:serverless": "docker build -t lagon/serverless -f docker/serverless.Dockerfile .",
+    "docker:start:serverless": "docker run --rm -p 4000:4000 --env-file packages/serverless/.env --network host lagon/serverless",
+    "docker:build:nginx": "docker build -t lagon/nginx -f docker/nginx.Dockerfile ./docker/nginx",
+    "docker:start:nginx": "docker run --rm -p 80:80 lagon/nginx",
+    "release": "pnpm build && pnpm changeset publish",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix"
+  },
+  "packageManager": "pnpm@7.3.0",
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=7.3.0"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.6",
+    "@changesets/cli": "^2.23.1",
+    "@types/mock-fs": "^4.13.1",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "c8": "^7.12.0",
+    "concurrently": "^7.2.1",
+    "esbuild": "^0.14.41",
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.2",
+    "mock-fs": "^5.1.4",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "tsup": "^6.0.1",
+    "turbo": "^1.5.2",
+    "typescript": "^4.6.4",
+    "vite-tsconfig-paths": "^3.5.0",
+    "vitest": "^0.15.1"
+  }
+}

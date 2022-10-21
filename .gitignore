@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.lagon/
+.turbo/
+ssl/
+target/
+packages/serverless/deployments/
+.vercel/
+
+.eslintcache
+.DS_Store
+.env
+tsconfig.tsbuildinfo

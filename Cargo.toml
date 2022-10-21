@@ -1,0 +1,6 @@
+[workspace]
+members = [
+  "packages/runtime",
+  "packages/serverless",
+  "packages/cli",
+]

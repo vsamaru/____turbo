@@ -1,0 +1,11 @@
+{
+  "name": "@lagon/runtime",
+  "version": "0.1.4",
+  "description": "JavaScript Serverless Runtime for Lagon",
+  "private": true,
+  "scripts": {
+    "build": "cargo build",
+    "test": "cargo test",
+    "lint": "cargo clippy -- -Dwarnings --no-deps"
+  }
+}

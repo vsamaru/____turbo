@@ -1,0 +1,20 @@
+{
+  "name": "@lagon/cli",
+  "version": "0.3.1",
+  "description": "CLI for Lagon",
+  "files": [
+    "npm"
+  ],
+  "bin": {
+    "lagon": "./npm/run.js"
+  },
+  "scripts": {
+    "build": "cargo build",
+    "lint": "cargo clippy -- -Dwarnings --no-deps",
+    "postinstall": "node npm/install.js",
+    "preuninstall": "node npm/uninstall.js"
+  },
+  "dependencies": {
+    "binary-install": "^1.0.6"
+  }
+}
