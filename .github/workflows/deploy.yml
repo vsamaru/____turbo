@@ -43,4 +43,4 @@ jobs:
         with:
           project: ttu
           root: dist
-          entrypoint: https://deno.land/std@0.157.0/http/file_server.ts
+          # entrypoint: https://deno.land/std@0.157.0/http/file_server.ts
