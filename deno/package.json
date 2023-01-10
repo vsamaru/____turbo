@@ -1,0 +1,11 @@
+{
+  "name": "@internal/deno",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@latest",
+  "description": "root",
+  "scripts": {
+    "build": "deno run -A dnt.ts",
+    "test": "deno test --ignore=packages"
+  }
+}
