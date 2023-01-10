@@ -1,77 +1,46 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./assets/logo-white.png">
-    <source media="(prefers-color-scheme: light)" srcset="./assets/logo-black.png">
-    <img alt="Lagon logo" height="60px" src="./assets/logo-white.png">
-  </picture>
-  <p align="center">
-    Deploy Serverless Functions at the Edge
-    <br />
-    <br />
-    <a align="center" href="https://discord.lagon.app">
-      💻 Join the Discord
-    </a>
-    <br />
-    <a align="center" href="https://tally.so/r/n9q1Rp">
-      ✉️ Get email updates
-    </a>
-    <br />
-    <br />
-    Open Source • TypeScript • Web APIs
-    <br />
-    Cron triggers • Instant deployments
-    <br />
-    Interactive playground
-  </p>
-</p>
+# Vite + Deno
 
-<hr />
+<img src="./public/vite-deno.svg" title="Vite + Vue + Deno"/>
 
-![Dashboard](./assets/dashboard.png)
+This is an example repo of running Vite with Deno.
 
-## About
+You can see live site at: https://vite-deno-example.deno.dev
 
-Lagon is a free Open Source Runtime and SaaS that make it easy to deploy TypeScript and JavaScript Serverless Functions at the Edge, using V8 Isolates. It's also self-hostable.
+This repo is based on a `deno-vue` template from `create-vite-extra`:
 
-> **Warning**: Lagon is still in heavy development. Do not use for production usages.
+```
+$ deno run -A npm:create-vite-extra --template deno-vue
+```
 
-Current status:
+## Notes
 
-- **Dev**
-- ~Alpha~
-- ~Beta~
-- ~General Availability~
+- You need to use `.mjs` or `.mts` extension for the `vite.config.[ext]` file.
 
-## Packages
+## Papercuts
 
-- **[runtime](./packages/runtime)** Rust JavaScript Runtime, using V8 Isolates
-- **[js-runtime](./packages/runtime)** JavaScript code for the Runtime, containing the Web APIs
-- **[cli](./packages/cli)** CLI to manage Functions
-- **[docs](./packages/docs)** Documentation website
-- **[serverless](./packages/serverless)** HTTP entrypoint for Functions, using the Runtime and exporting metrics
-- **[website](./packages/website)** Dashboard and API
-- **[www](./www)** Public website
+Currently there's a "papercut" for Deno users:
 
-## Planned features
+- peer dependencies need to be referenced in `vite.config.js` - in this example
+  it is only `vue` package that needs to be referenced
 
-- JavaScript Runtime based on V8 Isolates with Web APIs
-- Deploy APIs, SSR(ed) websites, Webhooks endpoints, Cron jobs...
-- CLI to manage Functions and run them locally
-- Playground in the website
-- Deploy at the Edge using the Cloud SaaS, or self-host it
+## Running
 
-## Roadmap
+You need to have Deno v1.28 or later intalled to run this repo.
 
-Lagon is a fairly recent project. It is still in heavy development, so expect breaking changes and buggy features.
+Start a dev server:
 
-[See the roadmap on GitHub](https://github.com/orgs/lagonapp/projects/1)
+```
+$ deno task dev
+```
 
-## How it works
+## Deploy
 
-Lagon uses V8 Isolates, which are sandboxed environments used to run plain JavaScript. That means each Function memory is isolated from each other and from the host. They are used behind the scene by [Node.js](https://nodejs.org/), [Electron](https://www.electronjs.org/), [Deno](https://deno.land/) (and [Deno Deploy](https://deno.com/deploy)), [Cloudflare Workers](https://workers.cloudflare.com/) and more.
+Build production assets:
 
-V8 Isolates are very fast to start (faster than starting a whole Node.js process) and such allows to have a very low latency coupled with almost free cold-starts.
+```
+$ deno task build
+```
 
-## License
-
-[GNU AGPLv3](./LICENSE)
+This repository uses
+[Deno Deploy and Git integration](https://deno.com/deploy/docs/projects#git-integration),
+where deployment is happening as part of the CI pipeline.
