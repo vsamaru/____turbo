@@ -1,8 +1,8 @@
 {
-  "name": "modern-node-project-2022-root",
+  "name": "mo",
   "private": true,
   "version": "1.0.0",
-  "packageManager": "pnpm@latest",
+  
   "description": "root",
   "scripts": {
     "g": "git add . && git commit -m 0 && git push -u origin main -f",
@@ -13,25 +13,20 @@
     "format": "deno fmt -c deno.jsonc",
     "lint": "deno lint -c deno.jsonc"
   },
-  "turbo": {
-    "npmClient": "pnpm",
-    "pipeline": {
-      "dev": {
-        "cache": false
-      },
-      
-      "build": {
-        "outputs": [
-          "dist",
-          "./packages"
-        ]
-      },
-      "test": {}
-    }
-  },
   "devDependencies": {
     "turbo": "latest",
     "typescript": "latest",
     "vitest": "latest"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsamaru/____turbo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vsamaru/____turbo/issues"
+  },
+  "homepage": "https://github.com/vsamaru/____turbo#readme"
 }

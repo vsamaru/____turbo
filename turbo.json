@@ -1,0 +1,15 @@
+{
+  "npmClient": "pnpm",
+  "pipeline": {
+    "dev": {
+      "cache": false
+    },
+    "build": {
+      "outputs": [
+        "dist",
+        "./packages"
+      ]
+    },
+    "test": {}
+  }
+}
