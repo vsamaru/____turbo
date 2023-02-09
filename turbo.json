@@ -2,7 +2,11 @@
   "npmClient": "pnpm",
   "pipeline": {
     "dev": {
-      "cache": false
+      "cache": false,
+      "outputs": [
+        "dist/**",
+        "build/**"
+      ]
     },
     "build": {
       "outputs": [
@@ -10,6 +14,11 @@
         "./packages"
       ]
     },
-    "test": {}
+    "test": {
+      "outputs": [
+        "dist/**",
+        "build/**"
+      ]
+    }
   }
 }

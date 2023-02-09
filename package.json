@@ -2,7 +2,7 @@
   "name": "mo",
   "private": true,
   "version": "1.0.0",
-  
+  "packageManager": "pnpm@8.15.0",
   "description": "root",
   "scripts": {
     "g": "git add . && git commit -m 0 && git push -u origin main -f",
